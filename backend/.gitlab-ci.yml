@@ -5,9 +5,6 @@ stages:
   - build
   - build_image
 
-include:
-  - template: Security/SAST.gitlab-ci.yml
-
 build: 
   stage: build
   image: golang:1.17
