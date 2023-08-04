@@ -35,7 +35,7 @@ build-image:
       --build-arg VERSION=$VERSION
       --tag $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
       .
-- docker push $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
   dependencies:
     -  build
   rules:
