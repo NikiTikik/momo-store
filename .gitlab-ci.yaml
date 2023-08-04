@@ -1,0 +1,12 @@
+stages:
+  - module-pipelines
+
+backend:
+  stage: modules-pipelines
+  trigger:
+    include:
+      - "/backend/.gitlab-ci.yml"
+    strategy: depend
+  only:
+    changes:
+      - backend/**/*
