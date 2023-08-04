@@ -1,8 +1,10 @@
-FROM alpine:latest  
+FROM alpine:latest
 
 ARG VERSION=${VERSION}
 
-ADD momo-store-backend-${VERSION} /momo-store-backend-1.0.0
-EXPOSE 8080
+COPY momo-store-backend-${VERSION} /momo-store-backend
 
-CMD [ "/momo-store-backend-1.0.0" ]
+EXPOSE 8081
+
+CMD [ "/momo-store-backend" ]
+
