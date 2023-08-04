@@ -2,7 +2,7 @@ stages:
   - module-pipelines
 
 backend:
-  stage: modules-pipelines
+  stage: module-pipelines
   trigger:
     include:
       - "/backend/.gitlab-ci.yml"
