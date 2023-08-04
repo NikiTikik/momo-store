@@ -12,9 +12,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo ./cmd/api
 
 FROM alpine:latest  
 
-COPY --from=builder ./cmd/api momo-store-backend-${VERSION}
+COPY --from=builder app/cmd/api .
 
 EXPOSE 8080
 
-CMD ["./momo-store-backend-${VERSION}"] 
+CMD ["./cmd/api"] 
    
