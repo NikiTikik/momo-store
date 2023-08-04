@@ -3,43 +3,18 @@ variables:
 
 stages:
   - build
-  - build_image
 
-build: 
+build-backend:
   stage: build
-  image: golang:1.17
-  script:       
-    - cd backend
-    - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo ./cmd/api
-    - mv api momo-store-backend-${VERSION}
-  artifacts:
-     paths:
-       - backend/momo-store-backend-${VERSION}
-  rules:
-      - changes:
-           - backend/*
-
-build-image:
-  stage: build_image
-  image: docker:latest
-  services:
-    - docker:dind    
-  variables:
-    FF_NETWORK_PER_BUILD: "true"   
-
+  image: docker:20.10.12-dind-rootless
   before_script:
     - until docker info; do sleep 1; done
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY         
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - cd backend
     - >
       docker build
       --build-arg VERSION=$VERSION
-      --tag $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
+      --tag $CI_REGISTRY_IMAGE/sausage-backend-report:$CI_COMMIT_SHA
       .
-    - docker push $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
-  dependencies:
-    -  build
-  rules:
-      - changes:
-           - backend/*
+    - docker push $CI_REGISTRY_IMAGE/sausage-backend-report:$CI_COMMIT_SHA
