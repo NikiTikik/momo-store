@@ -8,5 +8,5 @@ EXPOSE 8081
 
 CMD [ "/momo-store-backend" ]
 
-    
+   
 
