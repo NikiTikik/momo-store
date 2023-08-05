@@ -15,7 +15,7 @@ stages:
 #   variables:
 #     COMPILE: "false"
 
-sonarqube-backen:
+sonarqube-backend:
   stage: test
   image: 
     name: sonarsource/sonar-scanner-cli:latest
