@@ -2,7 +2,7 @@ FROM node:8 AS builder
 ARG VUE_APP_API_URL=/
 
 WORKDIR /app
-#COPY package*.json ./
+COPY package*.json ./
 RUN npm install
 COPY ./ .
 RUN npm run build
