@@ -46,6 +46,6 @@ build-backend:
     - >
       docker build
       --build-arg VERSION=$VERSION
-      --tag $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
+      --tag $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHA
       .
-    - docker push $CI_REGISTRY_IMAGE/momo-backend:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHA
