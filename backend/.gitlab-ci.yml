@@ -30,10 +30,10 @@ sonarqube-backen:
     - cd backend
     - >
       sonar-scanner -Dsonar.qualitygate.wait=true \
-        -Dsonar.projectKey=15_TSAREVNV_front \
+        -Dsonar.projectKey=momo-backend-nvi \
         -Dsonar.sources=. \
         -Dsonar.host.url=https://sonarqube.praktikum-services.ru \
-        -Dsonar.login=e7aab173e21292afffa0217566b173d089b5d418
+        -Dsonar.login=8eb059a8c88af3943e71431db6f26061cca5f2a7
   allow_failure: true
 
 build-backend:
