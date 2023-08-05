@@ -15,9 +15,8 @@ stages:
   - build_image
 
 
-spotbugs-sast:
-  variables:
-    COMPILE: "false"
+sast:
+  stage: test_code
 
 sonarqube-frontend-sast:
   stage: test_code
