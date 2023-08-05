@@ -8,15 +8,15 @@ variables:
     VERSION: 1.0.${CI_PIPELINE_ID}
 
 stages:
-  - test
-  - build
+  - test_code
+  - build_image
 
 spotbugs-sast:
   variables:
     FAIL_NEVER: 1
 
 sonarqube-backend:
-  stage: test
+  stage: test_code
   image: 
     name: sonarsource/sonar-scanner-cli:latest
   variables:
@@ -37,7 +37,7 @@ sonarqube-backend:
   allow_failure: true
 
 build-backend:
-  stage: build
+  stage: build_image
   image: docker:20.10.12-dind-rootless
   before_script:
     - until docker info; do sleep 1; done
