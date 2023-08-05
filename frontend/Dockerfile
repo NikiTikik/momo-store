@@ -1,5 +1,6 @@
 FROM node:8 AS builder
 ARG VUE_APP_API_URL=http://localhost:8081
+
 WORKDIR /app
 COPY . .
 RUN npm install
