@@ -8,6 +8,8 @@ variables:
 stages:
   - test_code
   - build_image
+include:
+  - template: Security/SAST.gitlab-ci.yml 
 
 sonarqube-frontend:
   stage: test_code
