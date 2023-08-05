@@ -4,7 +4,8 @@ cache:
 
 include:
   - project: 'templates/ci'
-    file: 'DockerInDockerTemplate.yml'
+    file: 'DockerInDockerTemplate.yml'.
+  - template: Security/SAST.gitlab-ci.yml 
 
 variables:
   VERSION: 1.0.${CI_PIPELINE_ID}
@@ -12,12 +13,11 @@ variables:
 stages:
   - test_code
   - build_image
-include:
-  - template: Security/SAST.gitlab-ci.yml 
 
-# spotbugs-sast:
-#   variables:
-#     COMPILE: "false"
+
+spotbugs-sast:
+  variables:
+    COMPILE: "false"
 
 sonarqube-frontend-sast:
   stage: test_code
