@@ -11,9 +11,8 @@ stages:
   - test_code
   - build_image
 
-spotbugs-sast:
-  variables:
-    FAIL_NEVER: 1
+sast:
+  stage: test_code
 
 sonarqube-backend:
   stage: test_code
