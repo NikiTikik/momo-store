@@ -11,6 +11,10 @@ stages:
 include:
   - template: Security/SAST.gitlab-ci.yml 
 
+spotbugs-sast:
+  variables:
+    COMPILE: "false"
+
 sonarqube-frontend:
   stage: test_code
   image: 
