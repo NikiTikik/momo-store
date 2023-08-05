@@ -5,7 +5,7 @@ cache:
 include:
   - template: Security/SAST.gitlab-ci.yml 
   - project: 'templates/ci'
-    file: 'DockerInDockerTemplate.yml'.
+    file: 'DockerInDockerTemplate.yml'
 
 variables:
   VERSION: 1.0.${CI_PIPELINE_ID}
