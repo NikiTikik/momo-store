@@ -1,14 +1,18 @@
-FROM node:16.10 as build-stage
-WORKDIR /app
+FROM node:lts-alpine as builder
+WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
-COPY ./ .
+COPY . .
 RUN npm run build
 
-FROM nginx:latest
-RUN mkdir /app
-ENV VUE_APP_API_URL=http://localhost:8081
+FROM nginx:stable-alpine
+ARG VERSION=${VERSION}
+LABEL name="momo-front" \
+      version=${VERSION}
+WORKDIR /usr/src/app
 ENV NODE_ENV=production
-COPY --from=build-stage /app/dist /app/static
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /usr/src/app/dist ./static/momo-store
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY app.conf /etc/nginx/conf.d/app.conf
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
