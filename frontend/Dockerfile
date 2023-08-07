@@ -1,4 +1,5 @@
-FROM node:8 as builder
+FROM node:16-alpine as builder
+
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
@@ -7,7 +8,7 @@ RUN npm run build
 
 FROM nginx:stable-alpine
 ARG VERSION=${VERSION}
-LABEL name="momo-front" \
+LABEL name="momo-frontend" \
       version=${VERSION}
 WORKDIR /usr/src/app
 ENV NODE_ENV=production
