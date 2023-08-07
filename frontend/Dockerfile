@@ -1,17 +1,13 @@
-FROM node:8 AS builder
-ARG VUE_APP_API_URL=http://localhost:8081
-
+FROM node:16.10 as build-stage
+ARG VUE_APP_API_URL=${VUE_APP_API_URL}
 WORKDIR /app
 COPY package*.json ./
-#RUN npm install
+RUN npm install
 COPY ./ .
-ENV NODE_ENV=/
-ENV VUE_APP_API_URL=/
-RUN npm install --cache .npm --prefer-offline && npm run build
-#RUN npm run build
+RUN npm run build
 
-FROM nginxproxy/nginx-proxy
-COPY --from=builder /app/dist /usr/share/nginx/html/
+FROM nginx:latest
+RUN mkdir /app
+COPY --from=build-stage /app/dist /app
 COPY nginx.conf /etc/nginx/nginx.conf
-
 EXPOSE 80
