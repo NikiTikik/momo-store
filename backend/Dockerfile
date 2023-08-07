@@ -1,4 +1,4 @@
-FROM golang:1.18
+FROM golang:latest
 ARG VERSION=${VERSION}
 WORKDIR /app
 COPY go.mod ./
