@@ -1,7 +1,4 @@
-FROM golang:1.18
-ARG VERSION=${VERSION}
-LABEL name="momo-back" \
-      version=${VERSION}
+FROM golang:latest
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
