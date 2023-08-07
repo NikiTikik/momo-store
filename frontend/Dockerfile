@@ -1,4 +1,4 @@
-FROM node:16.10 AS builder
+FROM node:lts-alpine builder
 ARG VUE_APP_API_URL=http://localhost:8081
 
 WORKDIR /app
