@@ -2,7 +2,7 @@ FROM node:16-alpine as builder
 WORKDIR /app
 COPY package*.json ./
 COPY ./ .
-ENV NODE_ENV=production
+ENV NODE_ENV=/
 ENV VUE_APP_API_URL=/
 RUN npm install && npm run build
 
