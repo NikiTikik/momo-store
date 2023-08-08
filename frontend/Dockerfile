@@ -12,6 +12,7 @@ LABEL name="momo-frontend" \
       version=${VERSION}
 WORKDIR /usr/src/app
 ENV NODE_ENV=production
+ENV VUE_APP_API_URL=/api
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
