@@ -7,7 +7,8 @@ ENV VUE_APP_API_URL=/
 RUN npm install && npm run build
 
 FROM nginx:latest
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /app
+COPY --from=builder /app/dist /app/static/momo-store
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
