@@ -14,6 +14,6 @@ WORKDIR /usr/src/app
 ENV NODE_ENV=production
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 RUN rm -rf /etc/nginx/conf.d/default.conf
-#COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]
