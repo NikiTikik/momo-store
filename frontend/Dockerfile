@@ -8,7 +8,7 @@ RUN npm install && npm run build
 #RUN npm install --cache .npm --prefer-offline && npm run build
 
 FROM nginx:latest
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html/momo-store
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
