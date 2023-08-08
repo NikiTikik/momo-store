@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY ./ .
 ENV NODE_ENV=/
-ENV VUE_APP_API_URL=/api
+ENV VUE_APP_API_URL=/
 RUN npm install && npm run build
 #RUN npm install --cache .npm --prefer-offline && npm run build
 
