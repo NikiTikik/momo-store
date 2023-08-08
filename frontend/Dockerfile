@@ -6,7 +6,6 @@ COPY ./ .
 RUN npm run build
 
 FROM nginx:latest
-RUN mkdir /app
 #ENV NODE_ENV=production
 ENV VUE_APP_API_URL=/
 COPY --from=builder /app/dist /usr/share/nginx/html
