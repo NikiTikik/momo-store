@@ -1,19 +1,25 @@
 stages:
-  - deploy
+  - push_chart
+  # - deploy
 
-deploy:
-  stage: deploy
-  image: alpine/k8s:1.22.15
-  environment:
-    name: k8s
-    url: https://std-015-37.k8s.praktikum-services.tech
-  when: manual
-  before_script:
-    - mkdir -p ~/.kube
-    - chmod 700 ~/.kube
-    - echo "$KUBECONFIG" >> ~/.kube/config
-    - export KUBECONFIG=~/.kube/config
-    - chmod 644 ~/.kube/config
-  script:
-    - kubectl config get-contexts
-    - 
+zip_chart:
+  - helm package ../momo-store-chart
+  - ls
+  - curl -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ --upload-file momo-store-0.1.0.tgz
+# deploy:
+#   stage: deploy
+#   image: alpine/k8s:1.22.15
+#   environment:
+#     name: k8s
+#     url: https://std-015-37.k8s.praktikum-services.tech
+#   when: manual
+#   before_script:
+#     - mkdir -p ~/.kube
+#     - chmod 700 ~/.kube
+#     - echo "$KUBECONFIG" >> ~/.kube/config
+#     - export KUBECONFIG=~/.kube/config
+#     - chmod 644 ~/.kube/config
+#   script:
+#     - kubectl config get-contexts
+#     - helm install <name> ./<chart_name> 
+#     - helm upgrade
