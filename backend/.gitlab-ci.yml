@@ -15,6 +15,14 @@ stages:
 sast:
   stage: test_code
 
+go-test:
+  image: golang:latest
+  stage: test_code
+  extends: .go-cache
+  script:
+    - cd backend/cmd/api/app
+    - go test -v
+
 sonarqube-backend:
   stage: test_code
   image: 
