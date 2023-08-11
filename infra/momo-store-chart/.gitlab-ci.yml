@@ -1,0 +1,19 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: alpine/k8s:1.22.15
+  environment:
+    name: k8s
+    url: https://std-015-37.k8s.praktikum-services.tech
+  when: manual
+  before_script:
+    - mkdir -p ~/.kube
+    - chmod 700 ~/.kube
+    - echo "$KUBECONFIG" >> ~/.kube/config
+    - export KUBECONFIG=~/.kube/config
+    - chmod 644 ~/.kube/config
+  script:
+    - kubectl config get-contexts
+    - 
