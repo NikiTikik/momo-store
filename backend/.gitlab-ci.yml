@@ -18,7 +18,6 @@ sast:
 go-test:
   image: golang:latest
   stage: test_code
-  extends: .go-cache
   script:
     - cd backend/cmd/api/app
     - go test -v
