@@ -28,4 +28,4 @@ helm:
       - "/infra/momo-store-chart/.gitlab-ci.yml"
   only:
     changes:
-      - /infra/momo-store-chart/**/*
+      - infra/momo-store-chart/**/*
