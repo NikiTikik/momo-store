@@ -114,3 +114,40 @@ resource "yandex_vpc_security_group" "k8s-public-services" {
     to_port           = 65535
   }
 }
+
+resource "yandex_kubernetes_node_group" "my_node_group" {
+  cluster_id  = "${yandex_kubernetes_cluster.k8s-momo.id}"
+  name        = "prod-node-group"
+  description = "cluster 1x1"
+  version     = "1.22"
+
+  labels = {
+    "app" = "momo-store"
+  }
+
+  instance_template {
+    platform_id = "standard-v2"
+
+    network_interface {
+      nat                = true
+      subnet_ids         = ["e9b6ram6rhouugts3i6v"]
+    }
+
+    resources {
+      memory = 4
+      cores  = 4
+    }
+
+    boot_disk {
+      type = "network-hdd"
+      size = 64
+    }
+
+    scheduling_policy {
+      preemptible = false
+    }
+
+    container_runtime {
+      type = "containerd"
+    }
+  }
