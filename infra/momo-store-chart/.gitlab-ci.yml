@@ -3,9 +3,11 @@ stages:
   # - deploy
 
 zip_chart:
-  - helm package ../momo-store-chart
-  - ls
-  - curl -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ --upload-file momo-store-0.1.0.tgz
+  stage: push_chart
+  script:
+    - helm package ../momo-store-chart
+    - ls
+    - curl -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ --upload-file momo-store-0.1.0.tgz
 # deploy:
 #   stage: deploy
 #   image: alpine/k8s:1.22.15
