@@ -13,7 +13,6 @@ zip_chart:
     - ./get_helm.sh
     - helm package infra/momo-store-chart
     - ls
-    - curl  --upload-file 
     - curl -v -F r=momo-store-tsarev -F hasPom=false -F g=momo -F a=momo -F v=${VERSION} -F file=momo-store-0.1.0.tgz -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
 # deploy:
 #   stage: deploy
