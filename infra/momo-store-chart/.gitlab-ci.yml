@@ -5,7 +5,9 @@ stages:
 zip_chart:
   stage: push_chart
   script:
-    - apt install helm
+    - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+    - chmod 700 get_helm.sh
+    - ./get_helm.sh
     - helm package ../momo-store-chart
     - ls
     - curl -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ --upload-file momo-store-0.1.0.tgz
