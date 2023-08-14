@@ -16,7 +16,8 @@ zip_chart:
     - mkdir momo-store-tsarev
     - helm repo index momo-store-tsarev/ --url https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
     - mv momo-store-0.1.0.tgz momo-store-tsarev/
-    - helm repo add momo-store-tsarev https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ --username ${NEXUS_REPO_USER} --password ${NEXUS_REPO_PASS} 
+    - helm repo add momo-store-tsarev https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ --username ${NEXUS_REPO_USER} --password ${NEXUS_REPO_PASS}
+    - helm repo list 
     # - curl https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ -v -F r=momo-store-tsarev -F hasPom=false -F g=momo -F a=momo -F v=${VERSION} -F file=momo-store-0.1.0.tgz -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} 
 # deploy:
 #   stage: deploy
