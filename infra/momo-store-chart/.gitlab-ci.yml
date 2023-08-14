@@ -2,6 +2,9 @@ stages:
   - push_chart
   # - deploy
 
+variables:
+  VERSION: 1.0.${CI_PIPELINE_ID}
+
 zip_chart:
   stage: push_chart
   script:
@@ -10,7 +13,8 @@ zip_chart:
     - ./get_helm.sh
     - helm package infra/momo-store-chart
     - ls
-    - curl -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} --upload-file momo-store-0.1.0.tgz https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
+    - curl  --upload-file 
+    - curl -v -F r=momo-store-tsarev -F hasPom=false -F g=momo -F a=momo -F v=${VERSION} -F file=momo-store-0.1.0.tgz -u ${NEXUS_REPO_USER}>:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
 # deploy:
 #   stage: deploy
 #   image: alpine/k8s:1.22.15
