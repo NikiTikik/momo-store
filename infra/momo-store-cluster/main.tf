@@ -130,7 +130,7 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
 
     network_interface {
       nat                = true
-      subnet_ids         = ["e9b6ram6rhouugts3i6v"]
+      subnet_ids         = [yandex_vpc_subnet.mysubnet.id]
     }
 
     resources {
