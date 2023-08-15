@@ -14,8 +14,8 @@ zip_chart:
   script:
     - helm package infra/momo-store-chart
     - >
-    curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} \
-    http://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ --upload-file momo-store-0.1.0.tgz
+      curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} \
+      http://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ --upload-file momo-store-0.1.0.tgz
 deploy:
   stage: deploy
   image: alpine/k8s:1.22.15
