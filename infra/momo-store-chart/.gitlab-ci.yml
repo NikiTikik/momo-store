@@ -39,5 +39,5 @@ deploy:
     - kubectl config get-contexts
     - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-tsarev/
     - helm repo update
-    - helm install momo-store ./momo-store-chart
+    - helm upgrade momo-store ./momo-store-chart
     # - helm upgrade
