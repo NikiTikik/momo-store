@@ -159,7 +159,7 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
 
   allocation_policy {
     location {
-      zone = "ru-central1-a"
+      zone = var.zone
     }
   }
 
