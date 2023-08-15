@@ -41,5 +41,4 @@ deploy:
     - helm repo update
     - helm repo list
     - helm list
-    - helm upgrade momo-store ./momo-store-chart
-    # - helm upgrade
+    - helm upgrade momo-store
