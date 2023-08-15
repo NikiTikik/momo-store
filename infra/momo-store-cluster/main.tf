@@ -119,7 +119,7 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
   cluster_id  = "${yandex_kubernetes_cluster.k8s-momo.id}"
   name        = "prod-node-group"
   description = "cluster 1x1"
-  version     = "1.22"
+  version     = var.k8s_version
 
   labels = {
     "app" = "momo-store"
