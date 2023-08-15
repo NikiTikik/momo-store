@@ -18,7 +18,7 @@ zip_chart:
     # - cp momo-store-0.1.0.tgz momo-store-tsarev/
     # - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
     # - helm repo list 
-    - helm package infra/momo-store-chart
+    - helm package infra/momo-store-chart --app-version ${VERSION}
     - curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} http://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ --upload-file momo-store-0.1.0.tgz
     # - helm push momo-store-0.1.0.tgz momo-store-tsarev
     # - curl https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/ -v -F r=momo-store-tsarev -F hasPom=false -F g=momo -F a=momo -F v=${VERSION} -F file=momo-store-0.1.0.tgz -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} 
