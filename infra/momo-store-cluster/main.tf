@@ -151,4 +151,20 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
       type = "containerd"
     }
   }
+   scale_policy {
+    fixed_scale {
+      size = 2
+    }
+  }
+
+  allocation_policy {
+    location {
+      zone = "ru-central1-a"
+    }
+  }
+
+  maintenance_policy {
+    auto_upgrade = true
+    auto_repair  = true
+  }
 }
