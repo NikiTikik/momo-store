@@ -151,3 +151,4 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
       type = "containerd"
     }
   }
+}
