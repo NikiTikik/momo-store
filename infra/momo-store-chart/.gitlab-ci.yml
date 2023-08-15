@@ -7,17 +7,11 @@ variables:
 
 zip_chart:
   stage: push_chart
-  script:
+  before_script:
     - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
     - chmod 700 get_helm.sh
-    - ./get_helm.sh
-    # - helm package infra/momo-store-chart
-    # - ls
-    # - mkdir momo-store-tsarev
-    # - helm repo index momo-store-tsarev/ --url https://nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
-    # - cp momo-store-0.1.0.tgz momo-store-tsarev/
-    # - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-store-tsarev/
-    # - helm repo list 
+    - ./get_helm.sh 
+  script:
     - helm package infra/momo-store-chart
     - curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} http://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ --upload-file momo-store-0.1.0.tgz
     # - helm push momo-store-0.1.0.tgz momo-store-tsarev
@@ -39,6 +33,4 @@ deploy:
     - kubectl config get-contexts
     - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-tsarev/
     - helm repo update
-    - helm repo list
-    - helm list
     - helm upgrade momo-store infra/momo-store-chart
