@@ -13,7 +13,8 @@ zip_chart:
     - ./get_helm.sh 
   script:
     - helm package infra/momo-store-chart
-    - curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} http://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ --upload-file momo-store-0.1.0.tgz
+    - mv momo-store-0.1.0.tgz momo-store-${VERSION}.tgz
+    - curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} http://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ --upload-file momo-store-${VERSION}.tgz
 deploy:
   stage: deploy
   image: alpine/k8s:1.22.15
@@ -33,5 +34,6 @@ deploy:
     - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-tsarev/
     - helm repo update
     - helm list
+    - curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/momo-store-${VERSION}.tgz
     # - helm uninstall momo-store
-    - helm upgrade momo-store infra/momo-store-chart -n std-015-37
+    - helm upgrade momo-store momo-store-${VERSION}.tgz -n std-015-37
