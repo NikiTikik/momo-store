@@ -1,9 +1,8 @@
 Описание каталогов:
-**frontend** - каталог с кодом фронтенда, докерфайлом и конвеером сборки артефакта.
-**backend** - каталог с кодом бекен, дадокерфайлом и конвеером сборки артефакта.
-
-**infra/momo-store-cluster** содержит описание кластера Managed Service for Kubernetes для Yandex.Cloud.
-**infra/momo-store-chart** содержит чарт для деплоя в продуктовую среду.
+- **frontend** - каталог с кодом фронтенда, докерфайлом и конвеером сборки артефакта.
+- **backend** - каталог с кодом бекен, дадокерфайлом и конвеером сборки артефакта.
+- **infra/momo-store-cluster** содержит описание кластера Managed Service for Kubernetes для Yandex.Cloud.
+- **infra/momo-store-chart** содержит чарт для деплоя в продуктовую среду.
 
 Ссылки:
 - Nexus (helm-репозиторий) - https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ 
