@@ -33,6 +33,7 @@ spec:
           volumeMounts:
           - name: nginx-conf
             mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
           image: "{{ .Values.image.repository }}:{{.Values.image.tag }}"
           resources:
             requests:
