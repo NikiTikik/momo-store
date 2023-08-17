@@ -32,5 +32,5 @@ deploy:
     - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-tsarev/
     - helm repo update
     - helm list
-    - helm uninstall momo-store
-    # - helm install momo-store infra/momo-store-chart
+    # - helm uninstall momo-store
+    - helm install momo-store infra/momo-store-chart
