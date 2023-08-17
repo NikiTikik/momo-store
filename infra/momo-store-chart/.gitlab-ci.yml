@@ -35,6 +35,5 @@ deploy:
     - helm repo update
     - helm list
     - curl -u ${NEXUS_REPO_USER}:${NEXUS_REPO_PASS} https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/momo-store-${VERSION}.tgz -o momo-store-${VERSION}.tgz
-    - ls
     # - helm uninstall momo-store
     - helm upgrade --install momo-store momo-store-${VERSION}.tgz -n std-015-37
