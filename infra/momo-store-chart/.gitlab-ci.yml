@@ -25,12 +25,13 @@ deploy:
     - mkdir -p ~/.kube
     - chmod 700 ~/.kube
     - echo "$KUBECONFIG" >> ~/.kube/config
+    - echo "$KUBECERT" >> ~/.kube/ca.pem
     - export KUBECONFIG=~/.kube/config
-    - chmod 644 ~/.kube/config
+    - chmod 644 ~/.kube/config ~/.kube/ca.pem
   script:
     - kubectl config get-contexts
     - helm repo add nexus http://${NEXUS_REPO_USER}:${NEXUS_REPO_PASS}@nexus.k8s.praktikum-services.tech/repository/momo-tsarev/
     - helm repo update
     - helm list
     # - helm uninstall momo-store
-    - helm install momo-store infra/momo-store-chart
+    - helm install momo-store infra/momo-store-chart -n momo-namespace
