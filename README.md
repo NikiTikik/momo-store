@@ -18,8 +18,8 @@ SonarQube (backend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-
 - Артефакты сборки публикуются в систему хранения
 - Артефакты сборки версионируются
 - Написаны Dockerfile'ы для сборки Docker-образов бэкенда и фронтенда
-      [Бэкенд: бинарный файл Go в Docker-образе](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/blob/main/backend/Dockerfile)
-      [Фронтенд: HTML-страница раздаётся с Nginx](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/blob/main/frontend/Dockerfile)
+  - [Бэкенд: бинарный файл Go в Docker-образе](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/blob/main/backend/Dockerfile)
+  - [Фронтенд: HTML-страница раздаётся с Nginx](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/blob/main/frontend/Dockerfile)
 - В GitLab CI описан шаг сборки и публикации артефактов
 - В GitLab CI описан шаг тестирования
 - В GitLab CI описан шаг деплоя
