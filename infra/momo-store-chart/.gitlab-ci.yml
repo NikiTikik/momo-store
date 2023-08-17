@@ -34,4 +34,4 @@ deploy:
     - helm repo update
     - helm list
     # - helm uninstall momo-store
-    - helm install momo-store infra/momo-store-chart -n momo-namespace
+    - helm install momo-store infra/momo-store-chart -n std-015-37
