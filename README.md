@@ -9,8 +9,7 @@
 - SonarQube (frontend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-frontend-nvi 
 - SonarQube (backend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-backend-nvi
 - Ссылка на приложение в кластере - https://momo-super-store.chickenkiller.com/
-- Ссылка на prometheus - 
-- Ссылка на grafana - 
+- Ссылка на grafana - http://51.250.90.149:3000/ 
 
 Чеклист:
 - В проекте присутствует .gitlab-ci.yml, в котором описаны шаги сборки
