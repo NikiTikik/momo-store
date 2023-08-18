@@ -9,9 +9,6 @@ data:
       worker_connections 768;
     }
     http {
-      upstream backend {
-              server localhost:8081;
-      }
       server {
         listen       80;
           location / {
@@ -21,7 +18,7 @@ data:
           }
 
           location ~ ^/(categories|products|auth|metrics|orders)/ {
-                  proxy_pass http://backend;
+                  proxy_pass http://backend-momo-store:8081;
           }
       }
     }
