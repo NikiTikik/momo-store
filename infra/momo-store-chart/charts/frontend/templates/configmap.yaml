@@ -10,7 +10,7 @@ data:
     }
     http {
       server {
-        listen       80;
+        listen 80;
           location / {
               root   /app/static/momo-store;
               index  index.html index.htm;
