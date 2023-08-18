@@ -13,7 +13,7 @@ frontend:
     repository: gitlab.praktikum-services.ru:5050/std-015-37/momo-store/frontend
     tag: "latest"
   replicas: 1
-  fqdn: std-015-37.k8s.praktikum-services.tech
+  fqdn: momo-super-store.chickenkiller.com
   requests:
     cpu: 200m
   limits:
