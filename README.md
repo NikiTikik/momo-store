@@ -1,14 +1,17 @@
 Описание каталогов:
-- **frontend** - каталог с кодом фронтенда, докерфайлом и конвеером сборки артефакта.
-- **backend** - каталог с кодом бекен, дадокерфайлом и конвеером сборки артефакта.
-- **infra/momo-store-cluster** содержит описание кластера Managed Service for Kubernetes для Yandex.Cloud.
-- **infra/momo-store-chart** содержит чарт для деплоя в продуктовую среду.
+- **frontend** - каталог с кодом фронтенда, докерфайлом и конвеером сборки артефакта;
+- **backend** - каталог с кодом бекен, дадокерфайлом и конвеером сборки артефакта;
+- **infra/momo-store-cluster** содержит описание кластера Managed Service for Kubernetes для Yandex.Cloud;
+- **infra/momo-store-chart** содержит чарт для деплоя в продуктовую среду;
+- **infra/additional** содержит дополнительные ресурсы.
 
 Ссылки:
 - Nexus (helm-репозиторий) - https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ 
 - SonarQube (frontend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-frontend-nvi 
 - SonarQube (backend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-backend-nvi
 - Ссылка на приложение в кластере - https://momo-super-store.chickenkiller.com/
+- Ссылка на Grafana приложения - http://grafana.momo-store-37.ru/ (креды для доступа пришлю)
+- Ссылка на Prometheus приложения - http://prometheus.momo-store-37.ru/
 - Ссылка на grafana кластера - http://51.250.90.149:3000/ 
 
 Чеклист:
@@ -29,3 +32,5 @@
 - Написаны Kubernetes-манифесты для публикации приложения
 - Написан [Helm-чарт](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/tree/main/infra/momo-store-chart) для публикации приложения
 - Helm-чарты публикуются и версионируются в [Nexus](https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/)
+- Приложение подключено к системам [логирования и мониторинга](http://grafana.momo-store-37.ru/)
+- Есть дашборд, в котором можно посмотреть логи и состояние приложения
