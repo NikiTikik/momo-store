@@ -3,7 +3,7 @@
 - **backend** - каталог с кодом бекен, дадокерфайлом и конвеером сборки артефакта;
 - **infra/momo-store-cluster** содержит описание кластера Managed Service for Kubernetes для Yandex.Cloud;
 - **infra/momo-store-chart** содержит чарт для деплоя в продуктовую среду;
-- **infra/additional** содержит дополнительные ресурсы.
+- **infra/additional** содержит дополнительные ресурсы (полезные ссылки и чарты мониторинга).
 
 Ссылки:
 - Nexus (helm-репозиторий) - https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ 
