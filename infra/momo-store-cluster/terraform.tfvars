@@ -1,4 +1,4 @@
-token = "t1.9euelZrPzYyTkpuMl4-NmJbLkMnKnu3rnpWayI3Kns6XksaSmYmbzMaKzJfl9PdKVAZZ-e8qbkvV3fT3CgMEWfnvKm5L1c3n9euelZqdy5ScnZLPyZLGnczGjsjLle_8xeuelZqdy5ScnZLPyZLGnczGjsjLlQ.NrJnyP4zqZENhszcRl7srBCTillabregnZSsAPvC6AETL9W9m5c1Z4HeU7ISpT0YoPu6AcUTcvXGN3gFto1HAQ"
+token = "<Заполнить руками>"
 cloud_id = "b1gl96r68sdb8sv0njar"
 folder_id = "b1gs6rjqskmuibnr49gp"
 zone = "ru-central1-a"
