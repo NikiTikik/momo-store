@@ -21,7 +21,7 @@ deploy:
   environment:
     name: k8s
     url: https://std-015-37.k8s.praktikum-services.tech
-#  when: manual
+  when: manual
   before_script:
     - mkdir -p ~/.kube
     - chmod 700 ~/.kube
