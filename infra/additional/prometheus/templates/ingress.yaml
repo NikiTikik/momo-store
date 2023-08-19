@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "{{ .Release.Namespace }}-monitoring.k8s.praktikum-services.tech"
+  - host: "{{ .Values.host }}"
     http:
       paths:
       - path: /
