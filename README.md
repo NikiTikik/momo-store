@@ -33,4 +33,4 @@
 - Написан [Helm-чарт](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/tree/main/infra/momo-store-chart) для публикации приложения
 - Helm-чарты публикуются и версионируются в [Nexus](https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/)
 - Приложение подключено к системам [логирования и мониторинга](http://grafana.momo-store-37.ru/)
-- Есть дашборд, в котором можно посмотреть логи и состояние приложения
+- Есть [дашборд](https://gitlab.praktikum-services.ru/std-015-37/momo-store/-/blob/develop/infra/additional/momo_dash.json), в котором можно посмотреть логи и состояние приложения
