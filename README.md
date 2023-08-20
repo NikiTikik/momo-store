@@ -9,7 +9,7 @@
 - Nexus (helm-репозиторий) - https://nexus.k8s.praktikum-services.tech/repository/momo-tsarev/ 
 - SonarQube (frontend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-frontend-nvi 
 - SonarQube (backend) - https://sonarqube.praktikum-services.ru/dashboard?id=momo-backend-nvi
-- Ссылка на приложение в кластере - https://momo-super-store.chickenkiller.com/
+- Ссылка на приложение в кластере - https://www.momo-store-37.ru/
 - Ссылка на Grafana приложения - http://grafana.momo-store-37.ru/ (креды для доступа пришлю)
 - Ссылка на Prometheus приложения - http://prometheus.momo-store-37.ru/
 - Ссылка на grafana кластера - http://51.250.90.149:3000/ 
