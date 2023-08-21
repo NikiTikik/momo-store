@@ -8,6 +8,7 @@ spec:
   tls:
     - hosts:
         - "{{ .Values.fqdn }}"
+      secretName: letsencrypt
   rules:
   - host: "{{ .Values.fqdn }}"
     http:
