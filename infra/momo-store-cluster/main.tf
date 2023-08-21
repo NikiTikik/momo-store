@@ -10,9 +10,9 @@ resource "yandex_kubernetes_cluster" "k8s-momo" {
   }
   service_account_id      = yandex_iam_service_account.myaccount.id
   node_service_account_id = yandex_iam_service_account.myaccount.id
-  kms_provider {
-    key_id = yandex_kms_symmetric_key.kms-key.id
-  }
+  # kms_provider {
+  #   key_id = yandex_kms_symmetric_key.kms-key.id
+  # }
 }
 
 resource "yandex_vpc_network" "mynet" {
