@@ -10,11 +10,6 @@ resource "yandex_kubernetes_cluster" "k8s-momo" {
   }
   service_account_id      = yandex_iam_service_account.myaccount.id
   node_service_account_id = yandex_iam_service_account.myaccount.id
-  depends_on = [
-    yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
-    yandex_resourcemanager_folder_iam_member.vpc-public-admin,
-    yandex_resourcemanager_folder_iam_member.images-puller
-  ]
   kms_provider {
     key_id = yandex_kms_symmetric_key.kms-key.id
   }
