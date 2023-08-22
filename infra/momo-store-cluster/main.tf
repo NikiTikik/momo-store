@@ -5,6 +5,7 @@ module "tf-yc-network" {
 module "tf-yc-iam" {
   source = "./modules/tf-yc-iam"
   sa_name = "k8s-adm"
+  folder_id = var.folder_id
 } 
 module "tf-yc-cluster" {
   source = "./modules/tf-yc-cluster"
