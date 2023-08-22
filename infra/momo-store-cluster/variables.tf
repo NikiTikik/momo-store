@@ -7,3 +7,6 @@ variable "cloud_id" {
 variable "folder_id" {
   type = string
 }
+variable "zone" {
+  type = string
+}
