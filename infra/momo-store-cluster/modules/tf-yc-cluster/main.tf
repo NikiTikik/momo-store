@@ -4,7 +4,7 @@ resource "yandex_kubernetes_cluster" "k8s-momo" {
     version = var.k8s_version
     public_ip = true
     zonal {
-      zone      = yandex_vpc_subnet.mysubnet.zone
+      zone      = var.zone
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
