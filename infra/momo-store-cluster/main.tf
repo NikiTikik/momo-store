@@ -15,6 +15,6 @@ module "tf-yc-cluster" {
   yandex_iam_service_account_id = "ekk" #module.tf-yc-iam.yandex_iam_service_account_id
 } 
 
-output "k8s_subnet_id" {
+output "subnet_id" {
   value = module.tf-yc-network.yandex_vpc_network
 }
