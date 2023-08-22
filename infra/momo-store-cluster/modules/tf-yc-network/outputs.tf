@@ -4,6 +4,6 @@ output "yandex_vpc_network" {
 output "network_id" {
     value = data.yandex_vpc_network.mynet
 }
-output "subnet_id" {
-    value = data.yandex_vpc_subnet.mysubnet.id
-}
+# output "subnet_id" {
+#     value = data.yandex_vpc_subnet.mysubnet.id
+# }
