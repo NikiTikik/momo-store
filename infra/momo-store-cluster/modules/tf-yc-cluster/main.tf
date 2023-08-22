@@ -1,5 +1,5 @@
 resource "yandex_kubernetes_cluster" "k8s-momo" {
-  network_id = yandex_vpc_network.mynet.id
+  network_id = var.network_id
   master {
     version = var.k8s_version
     public_ip = true
