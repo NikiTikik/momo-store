@@ -1,6 +1,6 @@
 module "tf-yc-network" {
   source = "./modules/tf-yc-network"
-  zone = var.zone
+  zone = "ru-central1-a"
 } 
 module "tf-yc-iam" {
   source = "./modules/tf-yc-iam"
