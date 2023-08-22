@@ -16,12 +16,12 @@ module "tf-yc-cluster" {
   yandex_iam_service_account_id = "ekk" # module.tf-yc-iam.yandex_iam_service_account_id
 } 
 
-output "subnet_id" {
-  value = module.tf-yc-network.yandex_vpc_network.subnet_ids[1]
-}
-output "network_id" {
-  value = module.tf-yc-network.yandex_vpc_network.network_id
-}
+# output "subnet_id" {
+#   value = module.tf-yc-network.yandex_vpc_network.subnet_ids[1]
+# }
+# output "network_id" {
+#   value = module.tf-yc-network.yandex_vpc_network.network_id
+# }
 output "yandex_iam_service_account_id" {
   value = module.tf-yc-iam.yandex_iam_service_account_id
 }
