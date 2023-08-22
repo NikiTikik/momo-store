@@ -17,7 +17,7 @@ module "tf-yc-cluster" {
 } 
 
 output "subnet_id" {
-  value = module.tf-yc-network.yandex_vpc_network.subnet_ids
+  value = module.tf-yc-network.yandex_vpc_network.subnet_ids[1]
 }
 output "yandex_iam_service_account_id" {
   value = module.tf-yc-iam.yandex_iam_service_account_id
