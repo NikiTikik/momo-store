@@ -1,7 +1,7 @@
-data "yandex_vpc_network" "mynet" {
-  name = "mynet"
+data "yandex_vpc_network" "default" {
+  name = "default"
 }
 
-data "yandex_vpc_subnet" "mysubnet" {
-  name = "${data.yandex_vpc_network.mysubnet.name}-${var.zone}"
+data "yandex_vpc_subnet" "default" {
+  name = "${data.yandex_vpc_network.default.name}-${var.zone}"
 }
