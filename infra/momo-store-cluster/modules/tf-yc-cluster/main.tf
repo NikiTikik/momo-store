@@ -5,11 +5,11 @@ resource "yandex_kubernetes_cluster" "k8s-momo" {
     public_ip = true
     zonal {
       zone      = var.zone
-      subnet_id = yandex_vpc_subnet.mysubnet.id
+      subnet_id = var.subnet_id
     }
   }
-  service_account_id      = yandex_iam_service_account.myaccount.id
-  node_service_account_id = yandex_iam_service_account.myaccount.id
+  service_account_id      = var.yandex_iam_service_account_id
+  node_service_account_id = var.yandex_iam_service_account_id
 }
 
 resource "yandex_kubernetes_node_group" "my_node_group" {
@@ -27,7 +27,7 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
 
     network_interface {
       nat                = true
-      subnet_ids         = [yandex_vpc_subnet.mysubnet.id]
+      subnet_ids         = [var.subnet_id]
     }
 
     resources {
