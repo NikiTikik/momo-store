@@ -10,7 +10,7 @@ module "tf-yc-cluster" {
   source = "./modules/tf-yc-cluster"
   k8s_version = "1.25"
   zone = "ru-central1-a"
-  k8s_subnet_id = module.tf-yc-network.subnet_id
-  k8s_network_id = module.tf-yc-network.network_id
+  k8s_subnet_id = module.tf-yc-network.yandex_vpc_network.subnet_id
+  k8s_network_id = module.tf-yc-network.yandex_vpc_network.network_id
   k8s_yandex_iam_service_account_id = module.tf-yc-iam.yandex_iam_service_account_id
 } 
