@@ -11,9 +11,9 @@ module "tf-yc-cluster" {
   source = "./modules/tf-yc-cluster"
   k8s_version = "1.25"
   zone = "ru-central1-a"
-  subnet_id = "ekk" # module.tf-yc-network.yandex_vpc_network.subnet_id
-  network_id = "ekk" # module.tf-yc-network.yandex_vpc_network.network_id
-  yandex_iam_service_account_id = "ekk" # module.tf-yc-iam.yandex_iam_service_account_id
+  subnet_id = module.tf-yc-network.subnet_id
+  network_id =  module.tf-yc-network.network_id
+  yandex_iam_service_account_id = module.tf-yc-iam.yandex_iam_service_account_id
 } 
 
 output "subnet_id" {
