@@ -1,0 +1,73 @@
+include:
+  - template: Security/SAST.gitlab-ci.yml 
+  - project: 'templates/ci'
+    file: 'DockerInDockerTemplate.yml'
+
+
+variables:
+    VERSION: 1.0.${CI_PIPELINE_ID}
+
+stages:
+  - test_code
+  - build_image
+  - release
+
+sast:
+  stage: test_code
+
+go-test:
+  image: golang:latest
+  stage: test_code
+  script:
+    - cd backend/cmd/api/app
+    - go test -v
+
+sonarqube-backend:
+  stage: test_code
+  image: 
+    name: sonarsource/sonar-scanner-cli:latest
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar" 
+    GIT_DEPTH: "0" 
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - cd backend
+    - >
+      sonar-scanner -Dsonar.qualitygate.wait=true \
+        -Dsonar.projectKey=momo-backend-nvi \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=https://sonarqube.praktikum-services.ru \
+        -Dsonar.login=8eb059a8c88af3943e71431db6f26061cca5f2a7
+  allow_failure: true
+
+build-backend:
+  stage: build_image
+  image: docker:20.10.12-dind-rootless
+  before_script:
+    - until docker info; do sleep 1; done
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - cd backend
+    - >
+      docker build
+      --build-arg VERSION=$VERSION
+      --tag $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHA
+      .
+    - docker push $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHA
+
+upload-backend-latest:
+  variables:
+    GIT_STRATEGY: none
+  image: docker:20.10.12-dind-rootless
+  stage: release
+  before_script:
+    - until docker info; do sleep 1; done
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE/backend:latest
+    - docker push $CI_REGISTRY_IMAGE/backend:latest
+

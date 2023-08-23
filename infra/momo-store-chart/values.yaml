@@ -1,0 +1,20 @@
+backend:
+  image:
+    repository: gitlab.praktikum-services.ru:5050/std-015-37/momo-store/backend
+    tag: "latest"
+  replicas: 1
+  requests:
+    cpu: 200m
+  limits:
+    cpu: 400m
+
+frontend:
+  image:
+    repository: gitlab.praktikum-services.ru:5050/std-015-37/momo-store/frontend
+    tag: "latest"
+  replicas: 1
+  fqdn: www.momo-store-37.ru
+  requests:
+    cpu: 200m
+  limits:
+    cpu: 400m
